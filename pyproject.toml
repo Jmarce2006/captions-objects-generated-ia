@@ -1,0 +1,73 @@
+[project]
+name = "Moments"
+version = "1.0.0"
+description = "A photo-sharing social network"
+authors = [
+    {name = "Grey Li", email = "withlihui@gmail.com"},
+]
+dependencies = [
+    "flask-sqlalchemy>=3.1.1",
+    "flask-login>=0.6.3",
+    "flask-dropzone>=1.6.0",
+    "flask-mail>=0.9.1",
+    "flask-wtf>=1.2.1",
+    "python-dotenv>=1.0.1",
+    "pillow>=10.2.0",
+    "bootstrap-flask>=2.3.3",
+    "flask>=3.0.2",
+    "flask-whooshee>=0.9.1",
+    "flask-avatars>=0.2.3",
+    "pyjwt>=2.8.0",
+    "email-validator>=2.1.0.post1",
+]
+requires-python = ">=3.9"
+readme = "README.md"
+license = {text = "MIT"}
+
+[tool.pdm]
+distribution = false
+
+[[tool.pdm.source]]
+url = "https://pypi.python.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[tool.pdm.dev-dependencies]
+dev = [
+    "faker>=23.2.0",
+    "watchdog>=4.0.0",
+    "ruff>=0.4.10",
+    "pre-commit>=3.5.0",
+    "selenium>=4.24.0",
+    "pytest>=8.1.1",
+]
+
+[[tool.pdm.autoexport]]
+filename = "requirements.txt"
+groups = ["default", "dev"]
+
+[tool.ruff]
+extend-exclude = ["migrations"]
+line-length = 120
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F",
+    # pyupgrade
+    "UP",
+    # flake8-bugbear
+    "B",
+    # flake8-simplify
+    "SIM",
+    # isort
+    "I",
+]
+
+[tool.ruff.format]
+quote-style = "single"
+
+[tool.ruff.lint.mccabe]
+max-complexity = 5
